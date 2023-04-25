@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Todo｜削除確認画面</title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container mt-5">
+  <p class="mb-3" th:text="${msg}"></p>
+
+
+  <form th:action="@{/todo/create}" method="post" th:object="${todoList}">
+      <div class="mb-3">
+        <span>ID</span>
+        <span th:text="*{id}"></span>
+        <input type="hidden" th:field="*{id}">
+      </div>
+
+      <div class="mb-3">
+        <span>件名</span>
+        <span th:text="*{title}"></span>
+        <input type="hidden" th:field="*{title}">
+      </div>
+
+      <div class="mb-3">
+        <span>重要度</span>
+        <span th:text="*{importance  == 1 ? '高' : '低'}"></span>
+        <input type="hidden" th:field="*{importance}">
+      </div>
+
+      <div class="mb-3">
+        <span>緊急度</span>
+        <span th:text="*{urgency == 1 ? '★★★' : '★'}"></span>
+        <input type="hidden" th:field="*{urgency}">
+      </div>
+
+      <div class="mb-3">
+        <span>期限</span>
+        <span th:text="*{deadline == 1 ? '★★★' : '★'}"></span>
+        <input type="hidden" th:field="*{deadline}">
+      </div>
+
+      <div class="mb-3">
+        <span>チェック</span>
+        <span th:text="*{done == 'Y' ? '完了' : ''}"></span>
+        <input type="hidden" th:field="*{done}">
+      </div>
+
+
+      <div class="mt-3">
+        <button type="submit" th:formaction="@{/todo/delete}" class="btn btn-outline-danger">削除</button>
+        <button type="submit" th:formaction="@{/todo/cancel}" class="btn btn-primary">キャンセル</button>
+      </div>
+
+  </form>
+
+</div>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
