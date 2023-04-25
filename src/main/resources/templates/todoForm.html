@@ -14,8 +14,7 @@
 <div class="container">
   <h1 class="display-1 mt-3 mb-3" th:text="${title}"></h1>
 
-
-  <form th:action="@{/todo/create}" method="post" th:object="${todoList}">
+  <form th:action="@{/todo/create}" method="post" th:object="${todo}">
 
     <div th:if="${session.mode == 'update'}" class="mb-3">
       <span>ID</span>

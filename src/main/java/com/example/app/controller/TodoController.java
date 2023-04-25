@@ -42,8 +42,7 @@ public class TodoController {
 
   //新規作成画面の表示(Get)
   @GetMapping("/todo/create")
-  public String CreateTodo(Model model, @ModelAttribute Todo todo) {
-    model.addAttribute("todoList", todo);
+  public String CreateTodo(Model model, @ModelAttribute Todo hogehoge) {
     model.addAttribute("title", "新規作成");
     session.setAttribute("mode", "create");
     return "todoForm";
@@ -69,7 +68,7 @@ public class TodoController {
       @PathVariable("id") int id,
       ModelAndView mav) {
     mav.setViewName("todoForm");
-    mav.addObject("todoList", todoRepository.findById(id).get());
+    mav.addObject("todo", todoRepository.findById(id).get());
     mav.addObject("title", "編集画面");
     session.setAttribute("mode", "update");
     return mav;

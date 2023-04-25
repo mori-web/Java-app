@@ -23,7 +23,7 @@ public class Todo {
 
   @Column(name="title")
   @NotBlank(message="未入力です")
-  private String title;
+  private String title ;
 
   @Column(name="importance")
   private Integer importance;
