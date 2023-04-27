@@ -6,8 +6,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Null;
+import jakarta.validation.constraints.Past;
 import java.sql.Date;
 import lombok.Data;
 
@@ -26,12 +31,15 @@ public class Todo {
   private String title ;
 
   @Column(name="importance")
+  @NotNull(message="チェックを入れて下さい")
   private Integer importance;
 
   @Column(name="urgency")
+  @NotNull(message="選択してください")
   private Integer urgency;
 
   @Column(name="deadline")
+  @NotNull(message="期限を設定してください")
   private Date deadline;
 
   @Column(name="done")

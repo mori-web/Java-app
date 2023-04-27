@@ -77,8 +77,14 @@ public class TodoController {
   //編集の処理(Post)
   @PostMapping("/todo/update")
   public String UpdateTodo(
-      @ModelAttribute Todo todo
+      @ModelAttribute @Validated Todo todo,
+      BindingResult bindingResult,
+      Model model
   ){
+    if(bindingResult.hasErrors()) {
+      model.addAttribute("title", "編集画面");
+      return "todoForm";
+    }
     todoRepository.saveAndFlush(todo);
     return "redirect:/todo";
   }

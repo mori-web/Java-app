@@ -23,8 +23,8 @@
     </div>
 
     <div class="mb-3">
-      <label for="text" class="form-label">件名</label>
-      <input type="text" id="text" th:field="*{title}" class="form-control"
+      <label for="title" class="form-label">件名</label>
+      <input type="text" th:field="*{title}" class="form-control"
              th:classappend="${#fields.hasErrors('title')} ? is-invalid">
       <p
           th:if="${#fields.hasErrors('title')}"
@@ -34,34 +34,71 @@
       </p>
     </div>
 
+
+<!--    <div class="mt-3">-->
+<!--      <label class="form-label" for="authorityRadio">権限</label>-->
+<!--      <div id="authorityRadio" th:classappend="${#fields.hasErrors('importance')} ? is-invalid">-->
+<!--        <div class="form-check">-->
+<!--          <input class="form-check-input" type="radio" id="authorityAdminRadio" th:field="*{importance}" value="1"-->
+<!--                 th:classappend="${#fields.hasErrors('importance')} ? is-invalid">-->
+<!--          <label class="form-check-label" for="authorityAdminRadio">ADMIN</label>-->
+<!--        </div>-->
+<!--        <div class="form-check" th:classappend="${#fields.hasErrors('importance')} ? is-invalid">-->
+<!--          <input class="form-check-input" type="radio" id="authorityUserRadio" th:field="*{importance}" name="2"-->
+<!--                 value="USER" th:classappend="${#fields.hasErrors('importance')} ? is-invalid">-->
+<!--          <label class="form-check-label" for="authorityUserRadio">USER</label>-->
+<!--        </div>-->
+<!--        <p class="invalid-feedback" th:if="${#fields.hasErrors('importance')}" th:errors="*{importance}">-->
+<!--          (errors)</p>-->
+<!--      </div>-->
+<!--    </div>-->
+
     <div class="mb-3">
-      重要度
-      <div class="form-check">
-        <input class="form-check-input" type="radio" value="1" th:field="*{importance}">
-        <label class="form-check-label" for="importance1">
-          高
-        </label>
+
+      <label for="importance">重要度</label>
+      <div id="importance">
+        <div class="form-check" th:classappend="${#fields.hasErrors('importance')} ? is-invalid">
+          <input class="form-check-input" type="radio" value="1" th:field="*{importance}"
+                 th:classappend="${#fields.hasErrors('importance')} ? is-invalid">
+          <label class="form-check-label" for="importance1">
+            高
+          </label>
+        </div>
+        <div class="form-check" th:classappend="${#fields.hasErrors('importance')} ? is-invalid">
+          <input class="form-check-input" type="radio" value="0" th:field="*{importance}"
+                 th:classappend="${#fields.hasErrors('importance')} ? is-invalid">
+          <label class="form-check-label" for="importance2">
+            低
+          </label>
+        </div>
+        <p class="invalid-feedback" th:if="${#fields.hasErrors('importance')}" th:errors="*{importance}">
+          (errors)</p>
       </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" value="0" th:field="*{importance}">
-        <label class="form-check-label" for="importance2">
-          低
-        </label>
-      </div>
+
     </div>
+
+
+
+
+
+
 
     <div class="mb-3">
       緊急度
-      <select name="urgency" class="form-select" aria-label="Default select example">
-        <option th:field="*{urgency}" value="-1">選択してください</option>
+      <select name="urgency" class="form-select" aria-label="Default select example"
+              th:classappend="${#fields.hasErrors('urgency')} ? is-invalid">
+        <option th:field="*{urgency}" value="">選択してください</option>
         <option th:field="*{urgency}" value="1">高</option>
         <option th:field="*{urgency}" value="0">低</option>
       </select>
+      <p class="invalid-feedback" th:if="${#fields.hasErrors('urgency')}" th:errors="*{urgency}"></p>
     </div>
 
     <div class="mb-3">
       <label for="deadline" class="form-label">期限</label>
-      <input th:field="*{deadline}" class="form-control">
+      <input th:field="*{deadline}" id="deadline" class="form-control"
+       th:classappend="${#fields.hasErrors('deadline')} ? is-invalid">
+      <p class="invalid-feedback" th:if="${#fields.hasErrors('deadline')}" th:errors="*{deadline}"></p>
     </div>
 
     <div class="mb-3">
@@ -69,7 +106,6 @@
       <input class="form-check-input" type="checkbox" value="Y" th:field="*{done}">完了
       <input type="hidden" name="!done" value="N">
     </div>
-
 
     <div class="mt-3" th:if="${session.mode == 'create'}">
       <button type="submit" th:formaction="@{/todo/create}" class="btn btn-primary">登録</button>
