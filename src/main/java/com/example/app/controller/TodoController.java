@@ -113,6 +113,7 @@ public class TodoController {
   public String cancel() {
     return "redirect:/";
   }
+
   //キャンセルの処理
   @PostMapping("/todo/cancel")
   public String cancelTodo() {

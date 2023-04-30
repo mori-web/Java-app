@@ -6,14 +6,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Future;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Null;
-import jakarta.validation.constraints.Past;
-import java.sql.Date;
+import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
 import lombok.Data;
 
 @Entity
@@ -28,18 +24,23 @@ public class Todo {
 
   @Column(name="title")
   @NotBlank(message="未入力です")
+//  @NotBlank()
   private String title ;
 
   @Column(name="importance")
   @NotNull(message="チェックを入れて下さい")
+//  @NotNull
   private Integer importance;
 
   @Column(name="urgency")
   @NotNull(message="選択してください")
+//  @NotNull
   private Integer urgency;
 
   @Column(name="deadline")
-  @NotNull(message="期限を設定してください")
+  @NotNull(message="期限を入力してください")
+//  @NotNull
+  @DateTimeFormat(pattern ="yyyy-MM-dd")
   private Date deadline;
 
   @Column(name="done")
