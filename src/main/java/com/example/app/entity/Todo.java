@@ -38,8 +38,8 @@ public class Todo {
   private Integer urgency;
 
   @Column(name="deadline")
-  @NotNull(message="期限を入力してください")
-//  @NotNull
+//  @NotNull(message="期限を入力してください")
+  @NotNull
   @DateTimeFormat(pattern ="yyyy-MM-dd")
   private Date deadline;
 
