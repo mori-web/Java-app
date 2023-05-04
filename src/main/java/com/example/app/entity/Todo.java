@@ -46,7 +46,4 @@ public class Todo {
   @Column(name="done")
   private String done;
 
-
-  cd
-
 }
