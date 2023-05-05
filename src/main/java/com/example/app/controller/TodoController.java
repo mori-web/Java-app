@@ -107,6 +107,7 @@ public class TodoController {
     todoRepository.deleteById(todo.getId());
     return "redirect:/todo";
   }
+  
 
   //キャンセルの処理
   @GetMapping("/cancel")
