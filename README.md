@@ -9,18 +9,18 @@ SpringBootフレームワークを用いたTodoアプリを作成
 ## Requirement
 <!-- 要件を書く -->
 <!-- 環境に必要な言語・ツール・ライブラリやバージョンを記載する -->
-・java 17
+・java 17  
 ・springboot 3.0.6
 
-・implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-・implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-・implementation 'org.springframework.boot:spring-boot-starter-validation'
-・implementation 'org.springframework.boot:spring-boot-starter-web'
-・compileOnly 'org.projectlombok:lombok'
-・developmentOnly 'org.springframework.boot:spring-boot-devtools'
-・runtimeOnly 'org.postgresql:postgresql'
-・annotationProcessor 'org.projectlombok:lombok'
-・testImplementation 'org.springframework.boot:spring-boot-starter-test'
+・implementation 'org.springframework.boot:spring-boot-starter-data-jpa'  
+・implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'  
+・implementation 'org.springframework.boot:spring-boot-starter-validation'  
+・implementation 'org.springframework.boot:spring-boot-starter-web'  
+・compileOnly 'org.projectlombok:lombok'  
+・developmentOnly 'org.springframework.boot:spring-boot-devtools'  
+・runtimeOnly 'org.postgresql:postgresql'  
+・annotationProcessor 'org.projectlombok:lombok'  
+・testImplementation 'org.springframework.boot:spring-boot-starter-test'  
 
 ・postgres 14.7
 
@@ -38,12 +38,12 @@ git clone https://github.com/mori-web/SpringBoot-TodoApp.git
 ## Features
 <!-- 特徴を書く -->
 <!-- 詳しい仕様について基本的に箇条書きで書く -->
-SpringBoot3にて簡単なTodoアプリを作成しました。
-基本実装はCRUDを実装しています。
-・新規作成
-・一覧の情報を取得
-・todoの編集
-・削除 (削除時に確認画面を追加)
+SpringBoot3にて簡単なTodoアプリを作成  
+基本実装はCRUDにて実装  
+・新規作成  
+・一覧情報を取得  
+・todoの編集  
+・削除 (削除時に確認画面を追加)  
 
 
 ## Reference
