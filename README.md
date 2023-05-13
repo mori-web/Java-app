@@ -51,6 +51,7 @@ SpringBoot3にて簡単なTodoアプリを作成
 ・一覧情報を取得  
 ・todoの編集  
 ・削除 (削除時に確認画面を追加)  
+DBはPostgresで連携
 
 
 ## Reference
